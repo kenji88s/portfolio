@@ -83,7 +83,7 @@ new Vue({
             height_match();
             gnavi_sink();
             loading_hidden();
-            window_loading.lang();
+            /* window_loading.lang(); */
             code.svg = build.title();
         },
         window: onscroll = function () {
