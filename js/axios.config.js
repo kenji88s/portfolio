@@ -55,6 +55,7 @@ var get_json = new Vue({
             axios.get(config2.json1)
                 .then(response => {
                     data.language = response.data;
+                    window_loading.lang();
                     flag.json1 = true; // 
                     flag.jsons = flag.json1 && flag.json2 && flag.json3;
                     /* ↑ レスポンスデータを保存 → 各ブロックの表示／非表示 */
