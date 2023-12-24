@@ -1,10 +1,10 @@
 // 設定
 const config2 = {
-    json1: 'json/language.json',
-    json2: 'json/contents.json',
-    json3: 'json/profile.json',
+    json1: 'https://raw.githubusercontent.com/kenji88s/portfolio_3/main/json/language.json',
+    json2: 'https://raw.githubusercontent.com/kenji88s/portfolio_3/main/json/contents.json',
+    json3: 'https://raw.githubusercontent.com/kenji88s/portfolio_3/main/json/profile.json',
     /* ↑ 読み込むJSONファイル */
-    /* json1: 'https://raw.githubusercontent.com/kenji88s/portfolio_2/main/json/contents.json', */
+    /* json1: 'https://raw.githubusercontent.com/kenji88s/portfolio_3/main/json/contents.json', */
 
     lang1: true,
     lang2: true,
