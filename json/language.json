@@ -36,7 +36,7 @@
         "authoring": "authoring software",
         "qualification": "qualification",
 
-        "alertJson": "File does not exist or connection is not possible",
+        "alertJson": "File does not exist or internet connection is not possible",
         "alertVideo": "To play videos, you need a browser that supports the video tag.",
         "useLang": "Language and Plugins for this site"
     },
@@ -77,7 +77,7 @@
         "authoring": "オーサリングソフト",
         "qualification": "取得資格",
         
-        "alertJson": "ファイルが存在しない<span>もしくは接続不可です</span>",
+        "alertJson": "ファイルが存在しない<span>もしくはネット接続不可です</span>",
         "alertVideo": "動画を再生するには、videoタグをサポートしたブラウザが必要です。",
         "useLang": "このサイトの言語・プラグイン"
     },
@@ -118,7 +118,7 @@
         "authoring": "logiciel de création",
         "qualification": "qualification",
 
-        "alertJson": "Le fichier n'existe pas ou la connexion n'est pas possible",
+        "alertJson": "Le fichier n'existe pas ou la connexion Internet n'est pas possible",
         "alertVideo": "Pour lire des vidéos, vous avez besoin d'un navigateur prenant en charge la balise vidéo.",
         "useLang": "Langue et Plugins pour ce site"
     },
@@ -159,7 +159,7 @@
         "authoring": "제작 소프트웨어",
         "qualification": "자격",
 
-        "alertJson": "파일이 없거나 연결할 수 없습니다.",
+        "alertJson": "파일이 없거나 인터넷에 연결할 수 없습니다.",
         "alertVideo": "동영상을 재생하려면 video 태그를 지원하는 브라우저가 필요합니다.",
         "useLang": "이 사이트의 언어 및 플러그인"
     }

@@ -139,7 +139,7 @@
     <p v-if="!flag.jsons" v-html="lang.alert"></p>
   </div>
   <!-- ######### ↓ 言語選択  ######### -->
-  <div class="lang" v-if="config2.lang2" v-html="build.lang2()"></div>
+  <div class="lang" v-if="config.lang2 && flag.json1" v-html="build.lang2()"></div>
 </div>
 <!-- ######### ↓ CANVAS  ######### -->
 <div id="particles" data-current="top"></div>
@@ -157,14 +157,14 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script> 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js'></script> 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js'></script>
+<script src="js/functions.js"></script> 
 <script src="js/config.js"></script> 
 <script src="js/axios.config.js"></script> 
 <script src="js/source_figure.js"></script> 
 <script src="js/source_build.js"></script> 
 <script src="js/particles.js"></script> 
 <script src="js/particles.config.js"></script> 
-<script src="js/functions.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/object-fit-images/3.2.4/ofi.js"></script> 
 <script>
 objectFitImages();

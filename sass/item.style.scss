@@ -1051,7 +1051,7 @@
       transform: scale(0.5);
     }
     @include tabletMin {
-    transform: scale(0.75);
+      transform: scale(0.75);
     }
   }
 }

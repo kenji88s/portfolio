@@ -32,13 +32,13 @@ $base_letter_spacing: 1.5px; //
 }
 
 @mixin widthMin($width) {
-  @media (min-width: ($width + 1)) {
+  @media (min-width: ($width + 0.1)) {
     @content;
   }
 }
 
 @mixin widthWithin($width1, $width2) {
-  @media (min-width: ($width1 + 1)) and (max-width: $width2) {
+  @media (min-width: ($width1 + 0.1)) and (max-width: $width2) {
     @content;
   }
 }
@@ -62,31 +62,31 @@ $base_letter_spacing: 1.5px; //
 }
 
 @mixin tabletMin {
-  @media (min-width: ($sp + 1)) {
+  @media (min-width: ($sp + 0.1)) {
     @content;
   }
 }
 
 @mixin computerMin {
-  @media (min-width: ($tab + 1)) {
+  @media (min-width: ($tab + 0.1)) {
     @content;
   }
 }
 
 @mixin desktopMin {
-  @media (min-width: ($pc + 1)) {
+  @media (min-width: ($pc + 0.1)) {
     @content;
   }
 }
 
 @mixin tabletWithin {
-  @media (min-width: ($sp + 1)) and (max-width: $tab) {
+  @media (min-width: ($sp + 0.1)) and (max-width: $tab) {
     @content;
   }
 }
 
 @mixin computerWithin {
-  @media (min-width: ($tab + 1)) and (max-width: $pc) {
+  @media (min-width: ($tab + 0.1)) and (max-width: $pc) {
     @content;
   }
 }
@@ -140,7 +140,7 @@ $base_letter_spacing: 1.5px; //
 }
 
 @mixin animate_pc($width: $sp) {
-  @media (min-width: ($width + 1)) {
+  @media (min-width: ($width + 0.1)) {
     &.transit-item {
       @content;
     }
@@ -148,7 +148,7 @@ $base_letter_spacing: 1.5px; //
 }
 
 @mixin effect_pc($width: $sp) {
-  @media (min-width: ($width + 1)) {
+  @media (min-width: ($width + 0.1)) {
     &.effected {
       @content;
     }

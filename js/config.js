@@ -1,12 +1,12 @@
 // 設定
-const config2 = {
+const config = {
     json1: 'https://raw.githubusercontent.com/kenji88s/portfolio_3/main/json/language.json',
     json2: 'https://raw.githubusercontent.com/kenji88s/portfolio_3/main/json/contents.json',
     json3: 'https://raw.githubusercontent.com/kenji88s/portfolio_3/main/json/profile.json',
     /* ↑ 読み込むJSONファイル */
     /* json1: 'https://raw.githubusercontent.com/kenji88s/portfolio_3/main/json/contents.json', */
 
-    lang1: true,
+    lang1: false,
     lang2: true,
     langKind: 'jpn',
     /* ↑ 言語設定機能のON/OFF、言語のデフォルト設定 */
@@ -14,7 +14,7 @@ const config2 = {
     postUrl: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSfQTt1NVY1mu1iD4pa-a7xeG5GnHVdkt1_EqWLmYm_nKLh1pg/formResponse',
     /* ↑ お問い合わせフォームの送信先 */
 
-    alertJson: 'ファイルが存在しない<span>もしくは接続不可です</span>',
+    alertJson: 'ファイルが存在しない<span>もしくはネット接続不可です</span>',
     /* ↑ JSONデータが読む込み不可のときの通知 */
 };
 
@@ -32,8 +32,8 @@ let data = new Vue({
 // 言語関連
 var lang = new Vue({
     data: {
-        kind: config2.langKind,
-        alert: config2.alertJson,
+        kind: config.langKind,
+        alert: config.alertJson,
     }
 });
 
@@ -83,8 +83,6 @@ new Vue({
             height_match();
             gnavi_sink();
             loading_hidden();
-            /* window_loading.lang(); */
-            code.svg = build.title();
         },
         window: onscroll = function () {
             height_match();

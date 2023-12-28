@@ -4,7 +4,7 @@ var window_loading = new Vue({
     methods: {
         // 言語選択画面
         lang: function () {
-            config2.lang1 ? code.loading = build.lang1() : this.select(lang.kind, 'load');
+            config.lang1 ? code.loading = build.lang1() : this.select(lang.kind, 'load');
             /* ↑ 言語設定の有効化で選択画面を表示 */
         },
         // 言語選択時
@@ -26,7 +26,7 @@ var window_loading = new Vue({
 
                     $('#loadingField').fadeOut(500, () => {
                         $('#loadingField').remove();
-                        $('#textTitleContainer').addClass('active');
+                        code.svg = build.title('active');
                         /* ↑ ローディングレイヤーの削除 → SVGアニメーションの実行 */
 
                         clearInterval(interval);
@@ -52,18 +52,27 @@ var get_json = new Vue({
     methods: {
         // 言語情報
         language: function () {
-            axios.get(config2.json1)
+            axios.get(config.json1)
                 .then(response => {
                     data.language = response.data;
                     window_loading.lang();
-                    flag.json1 = true; // 
+                    /* ↑ レスポンスデータを保存 → 言語選択画面 */
+                    flag.json1 = true;
                     flag.jsons = flag.json1 && flag.json2 && flag.json3;
-                    /* ↑ レスポンスデータを保存 → 各ブロックの表示／非表示 */
+                    /* ↑ 各ブロックの表示／非表示 */
+                })
+                .catch(error => {
+                    $('body').removeAttr('data-state');
+                    code.svg = build.title('active');
+                    /* ↑ SVGの表示 → アニメーション実行 */
+                    once.addClass = 'active';
+                    /* ↑ アラートの通知 */
+                    console.log(error);
                 })
         },
         // コンテンツ内容
         contents: function () {
-            axios.get(config2.json2)
+            axios.get(config.json2)
                 .then(response => {
                     data.contents = response.data;
                     for (var int in data.contents) {
@@ -71,7 +80,6 @@ var get_json = new Vue({
                         (items_more.countFinish[category] ? null : items_more.countFinish[category] = data.contents[int].loadCount);
                     };
                     /* ↑ レスポンスデータを保存 → 各コンテンツのページ遷移時の件数を保存 */
-
                     flag.json2 = true;
                     flag.jsons = flag.json1 && flag.json2 && flag.json3;
                     /* ↑ 各ブロックの表示／非表示 */
@@ -79,10 +87,10 @@ var get_json = new Vue({
         },
         // プロフィール情報
         profile: function () {
-            axios.get(config2.json3)
+            axios.get(config.json3)
                 .then(response => {
                     data.profile = response.data;
-                    flag.json3 = true; // 
+                    flag.json3 = true;
                     flag.jsons = flag.json1 && flag.json2 && flag.json3;
                     /* ↑ レスポンスデータを保存 → 各ブロックの表示／非表示 */
                 })
@@ -98,40 +106,6 @@ var items_more = new Vue({
         countFinish: {},
     },
     methods: {
-        effect: function (category, next, area) {
-            items_more.$set(items_more.countFinish, category, next);
-            items_more.countFinish = Object.assign({}, items_more.countFinish, { category });
-            /* ↑ 改めてvueの変数に反映後の個数をセット */
-            let timeout = setTimeout(function () {
-                $(area).find('.transit-item').addClass('effected');
-                clearTimeout(timeout);
-            }, 300);
-            loading_hidden();
-            /* ↑ 遅延でCSSエフェクトを実行 → 画像の上のローディングアニメーションの停止 */
-        },
-        disable: function (loading) {
-            $(loading).find('.more_btn').addClass('disable');
-            $(loading).append(figure['loading2']);
-            /* ↑ ボタンクリックを無効化 → 上にローディングアニメーション */
-        },
-        image: function (prev, next, categoryIndex) {
-            var categoryImages = [];
-            for (var i = 0, n = prev; n < next; i++, n++) {
-                categoryImages[i] = new Image();
-                var imageSrc = data.contents[categoryIndex].items[n].image;
-                if (imageSrc) categoryImages[i].src = imageSrc;
-            };
-
-            categoryImages.forEach(function (image) {
-                image.onload = function () {
-                };
-            });
-        },
-        enable: function (loading) {
-            $('.half_circles').css({ 'animation-play-state': 'paused' }).fadeOut(500, () => { $(this).remove(); });
-            $(loading).find('.more_btn').removeClass('disable');
-            /* ↑ ローディングアニメーションの停止 → ボタンの有効化 */
-        },
         then: function (category, categoryIndex) {
             var placeInsert = `[${'data-insert'}="${category}"]`;
             var placeLoading = `${placeInsert} + ${'.contents_section_loading'}`;
@@ -148,6 +122,40 @@ var items_more = new Vue({
             /* this.image(countPrev, countNext, categoryIndex); */
             this.effect(category, countNext, placeInsert);
             this.enable(placeLoading);
+        },
+        effect: function (category, next, area) {
+            items_more.$set(items_more.countFinish, category, next);
+            items_more.countFinish = Object.assign({}, items_more.countFinish, { category });
+            /* ↑ 改めてvueの変数に反映後の個数をセット */
+            let timeout = setTimeout(function () {
+                $(area).find('.transit-item').addClass('effected');
+                clearTimeout(timeout);
+            }, 300);
+            loading_hidden();
+            /* ↑ 遅延でCSSエフェクトを実行 → 画像の上のローディングアニメーションの停止 */
+        },
+        disable: function (loading) {
+            $(loading).find('.more_btn').addClass('disable');
+            $(loading).append(figure['loading2']);
+            /* ↑ ボタンクリックを無効化 → 上にローディングアニメーション */
+        },
+        enable: function (loading) {
+            $('.half_circles').css({ 'animation-play-state': 'paused' }).fadeOut(500, () => { $(this).remove(); });
+            $(loading).find('.more_btn').removeClass('disable');
+            /* ↑ ローディングアニメーションの停止 → ボタンの有効化 */
+        },
+        image: function (prev, next, categoryIndex) {
+            var categoryImages = [];
+            for (var i = 0, n = prev; n < next; i++, n++) {
+                categoryImages[i] = new Image();
+                var imageSrc = data.contents[categoryIndex].items[n].image;
+                if (imageSrc) categoryImages[i].src = imageSrc;
+            };
+
+            categoryImages.forEach(function (image) {
+                image.onload = function () {
+                };
+            });
         },
     },
 });
@@ -243,9 +251,14 @@ var form_action = new Vue({
             $('.overlay_detail_icon, .confirm_table, .confirm_btns').css({ 'opacity': 0.5, 'pointer-events': 'none' });
             $('.confirm_loading').css({ 'visibility': 'visible' });
             /* ↑ オーバーレイの各要素を半透明、クリック無効化 → ローディングの出現 */
-            /* axios.post('https://docs.google.com/forms/u/0/d/e/1FAIpQLSfQTt1NVY1mu1iD4pa-a7xeG5GnHVdkt1_EqWLmYm_nKLh1pg/formResponse', this.inputData) */
+            /*
+            axios.post(config.postUrl, this.inputData)
+            .then(response => {
+                alert(response.status);
+            })
+            */
             $.ajax({
-                url: config2.postUrl,
+                url: config.postUrl,
                 data: this.inputData,
                 type: "POST",
                 statusCode: {
