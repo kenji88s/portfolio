@@ -4,9 +4,8 @@ const config = {
     json2: 'https://raw.githubusercontent.com/kenji88s/portfolio_3/main/json/contents.json',
     json3: 'https://raw.githubusercontent.com/kenji88s/portfolio_3/main/json/profile.json',
     /* ↑ 読み込むJSONファイル */
-    /* json1: 'https://raw.githubusercontent.com/kenji88s/portfolio_3/main/json/contents.json', */
 
-    lang1: false,
+    lang1: true,
     lang2: true,
     langKind: 'jpn',
     /* ↑ 言語設定機能のON/OFF、言語のデフォルト設定 */
