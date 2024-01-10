@@ -110,28 +110,6 @@
                 "comment": ""
             },
             {
-                "image": "img/site/site11-thumb.jpg",
-                "title": "株式会社ウエット・アンド・カンパニー",
-                "url": "https://www.wet-c.co.jp/",
-                "attached": "株式会社東名",
-                "date": "20年09月",
-                "period": "",
-                "phase": "コーディング",
-                "feature": "新規、レスポンシブ",
-                "comment": ""
-            },
-            {
-                "image": "img/site/site10-thumb.jpg",
-                "title": "萬路株式会社",
-                "url": "https://banro.co.jp/",
-                "attached": "株式会社東名",
-                "date": "20年09月",
-                "period": "",
-                "phase": "コーディング",
-                "feature": "新規、レスポンシブ",
-                "comment": ""
-            },
-            {
                 "image": "img/site/site09-thumb.jpg",
                 "title": "有限会社 N.A.O",
                 "url": "https://www.nao70.biz/",
@@ -298,18 +276,6 @@
                 "date": "20年11月",
                 "period": "",
                 "system": "お知らせ、施工実績",
-                "feature": "",
-                "comment": "",
-                "code": ""
-            },
-            {
-                "title": "ひまわりサロン祖父江店",
-                "url": "http://www.himawari-sobue.com/",
-                "attached": "株式会社東名",
-                "environment": "Movable Type",
-                "date": "20年08月",
-                "period": "",
-                "system": "ブログ",
                 "feature": "",
                 "comment": "",
                 "code": ""
