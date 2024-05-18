@@ -6,6 +6,11 @@ body[data-state=loading], body[data-state=detail], body[data-state=gnavi] {
   overflow-y: hidden;
   height: 100vh;
 }
+@media (max-width: 1020px) and (any-hover: none) {
+  body[data-state=loading], body[data-state=detail], body[data-state=gnavi] {
+    overflow-y: unset;
+  }
+}
 body[data-state=loading] .wrapper {
   display: none;
 }
@@ -296,6 +301,7 @@ body[data-state=loading] .wrapper {
     overflow-y: scroll;
     min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.05);
   }
 }
 @media (max-width: 1020px) and (max-width: 480px) {

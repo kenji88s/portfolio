@@ -90,6 +90,7 @@
   overflow-y: scroll;
   @include tabletMax {
     background: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.05);
   }
   &_outer {
     @include computerMin {
