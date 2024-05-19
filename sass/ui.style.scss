@@ -13,11 +13,6 @@ body {
   &[data-state="gnavi"] {
     overflow-y: hidden;
     height: 100vh;
-    @include widthMax(1020px) {
-      @include device {
-        overflow-y: unset;
-      }
-    }
   }
   &[data-state="loading"] {
     .wrapper {
