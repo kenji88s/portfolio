@@ -91,10 +91,13 @@ new Vue({
             lang_toggle();
         },
         window: onresize = function () {
-            height_match();
-            lang_toggle();
-            gnavi_toggle('resize');
-            code.svg = build.title('active');
+            var ua = navigator.userAgent;
+            if (ua.indexOf('iPhone') > -1 || (ua.indexOf('Android') > -1 && ua.indexOf('Mobile') > -1)) {
+                height_match();
+                lang_toggle();
+                gnavi_toggle('resize');
+                code.svg = build.title('active');
+            };
         },
     }
 });
