@@ -268,7 +268,6 @@ body {
     overflow-y: scroll;
     min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.95);
-    background-color: rgba(0, 0, 0, 0.05);
     @include phoneMax {
       padding: 7.5vw 5vw 15vw;
     }
