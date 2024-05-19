@@ -301,7 +301,6 @@ body[data-state=loading] .wrapper {
     overflow-y: scroll;
     min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.95);
-    background-color: rgba(0, 0, 0, 0.05);
   }
 }
 @media (max-width: 1020px) and (max-width: 480px) {

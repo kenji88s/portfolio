@@ -99,7 +99,6 @@
 @media (max-width: 896px) {
   .overlay_detail {
     background: rgba(0, 0, 0, 0.9);
-    background-color: rgba(0, 0, 0, 0.05);
   }
 }
 @media (min-width: 896.1px) {
