@@ -6,11 +6,6 @@ body[data-state=loading], body[data-state=detail], body[data-state=gnavi] {
   overflow-y: hidden;
   height: 100vh;
 }
-@media (max-width: 1020px) and (any-hover: none) {
-  body[data-state=loading], body[data-state=detail], body[data-state=gnavi] {
-    overflow-y: unset;
-  }
-}
 body[data-state=loading] .wrapper {
   display: none;
 }
